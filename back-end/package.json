@@ -1,0 +1,21 @@
+{
+  "name": "encrypted-chat-server",
+  "version": "0.0.0",
+  "description": "server side",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "nodemon --exec ts-node ./src/server.ts"
+  },
+  "author": "Viktor Boiko",
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.6.1",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.2"
+  }
+}
