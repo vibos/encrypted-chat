@@ -1,0 +1,56 @@
+.content {
+  padding: 0 !important;
+}
+
+.header {
+  background-color: rgb(240, 242, 245);
+  border-radius: 12px 12px 0 0;
+}
+
+.title {
+  padding-bottom: 8px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: rgb(239, 234, 226);
+  background-image: url(https://static.whatsapp.net/rsrc.php/v3/yl/r/gi_DckOUM5a.png);
+
+  .message {
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px;
+    margin-bottom: 12px;
+    width: fit-content;
+    max-width: 75%;
+  }
+
+  .sent {
+    align-self: flex-end;
+  }
+
+  .received {
+
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background-color: rgb(240, 242, 245);
+  padding: 16px;
+  border-radius: 0 0 12px 12px !important;
+
+  .message-box {
+    width: 100%;
+    margin-bottom: -20px;
+
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      background: #fff;
+    }
+  }
+}

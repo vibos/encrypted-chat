@@ -1,8 +1,18 @@
-html, body {
+:root {
+  --background-dark: #e2e1de;
+  --background-ligth: #f0f2f5;
+}
+
+html,
+body {
   height: 100%;
 }
 
 body {
   margin: 0;
+  padding: 24px;
+  min-width: 320px;
+  box-sizing: border-box;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--background-dark);
 }
