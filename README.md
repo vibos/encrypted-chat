@@ -50,3 +50,9 @@ Delta | Whiskey
 - password hashing is performed by bcrypt
 - secret `pepper` is used for all passwords. Pepper is stored in environment variable
 - random `salt` is used for passwords. Salting is performed by bcrypt. Salt is stored as a part of password hash
+
+### Authorization
+- If RSA privateKey is not present in the storage, an RSA key pair is generated on client side. Public key is sent to server and saved to DB
+- On successful login `privateKey` is stored on client (if was generated)
+- Server issues an JWT token with limited lifetime. Client stores the token for future use
+- On page refresh user will be signed out if: JWT token is not present, privateKey is not present or JWT token is expired

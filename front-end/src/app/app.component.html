@@ -1,3 +1,9 @@
 <div class="wrap">
-  <router-outlet />
+  <mat-toolbar *ngIf="authService.profile$ | async as profile">
+    <span>{{ profile['userName'] }}</span>
+  </mat-toolbar>
+
+  <div style="margin-top: 24px;">
+    <router-outlet />
+  </div>
 </div>

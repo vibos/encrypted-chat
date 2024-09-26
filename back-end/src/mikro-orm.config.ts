@@ -16,8 +16,6 @@ const {
   POSTGRESQL_DEBUG: debug,
 } = process.env;
 
-console.log({host, port});
-
 export const mikroOrmConfig: Parameters<typeof MikroORM.init>[0] = {
   entities: [User as EntityClass<User>],
   extensions: [Migrator],

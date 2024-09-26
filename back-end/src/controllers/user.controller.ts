@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { MikroORM } from '@mikro-orm/core';
 import type { EntityRepository } from '@mikro-orm/core/entity';
 import type { EntityManager } from '@mikro-orm/core/EntityManager';
+import jwt from 'jsonwebtoken';
 
 import { CryptoService } from '../crypto.service';
 import { User } from '../entities/user.entity';
@@ -38,7 +39,18 @@ export class UserController {
       await this.entityManager.persistAndFlush(user);
     }
 
-    res.json(user);
+    const profile = {
+      id: user.id,
+      userName: user.userName,
+    };
+
+    const token = jwt.sign(
+      profile,
+      process.env.JWT_SECRET || '',
+      { expiresIn: `${process.env.JWT_EXPIRES_IN_H}h` },
+    );
+
+    res.json(token);
   }
 
 }
