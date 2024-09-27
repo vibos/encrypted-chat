@@ -7,11 +7,20 @@ import { environment } from '../environments/environment';
 @Injectable({ providedIn: 'root' })
 export class ApiService {
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+  ) {
   }
 
   signIn(userName: string, password: string, publicKey?: string): Observable<string> {
     return this.http.post<string>(`${environment.apiUrl}/login`, { userName, password, publicKey});
+  }
+
+  /**
+   * Get RSA public key
+   */
+  startChat(userName: string, token: string): Observable<string> {
+    return this.http.post<string>(`${environment.apiUrl}/chat`, { userName, token });
   }
 
 }

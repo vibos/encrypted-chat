@@ -56,3 +56,16 @@ Delta | Whiskey
 - On successful login `privateKey` is stored on client (if was generated)
 - Server issues an JWT token with limited lifetime. Client stores the token for future use
 - On page refresh user will be signed out if: JWT token is not present, privateKey is not present or JWT token is expired
+
+### Messaging
+- When chat is started, RSA Public Key of another users is retrieved, AES key is generated
+- When message is sent, AES is encoded with RSA Public Key. Message is encoded with AES
+
+#### Improvements
+- Store AES permanently
+- Send AES once, when chat begins or previous AES is not valid
+- Validate JWT tokens for senders
+- Handle offline users (send message when they connect)
+- Track message delivery status
+- Use interceptor to send JWT token in header
+- Improve typings

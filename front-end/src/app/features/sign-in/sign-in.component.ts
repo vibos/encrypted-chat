@@ -7,6 +7,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { AuthService } from '../../auth.service';
+import { ChatService } from '../../chat.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -24,6 +25,7 @@ export class SignInComponent {
     private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
+    public chatService: ChatService,
   ) {
     this.form = this.fb.group({
       userName: ['', Validators.required],
@@ -38,6 +40,7 @@ export class SignInComponent {
 
     try {
       await this.authService.signIn(this.form.value.userName, this.form.value.password);
+      this.chatService.connect();
       this.router.navigate(['/', 'dialogs']);
     } catch (err: any) {
       alert(err.error.message);

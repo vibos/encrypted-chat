@@ -1,6 +1,8 @@
 <div class="wrap">
-  <mat-toolbar *ngIf="authService.profile$ | async as profile">
-    <span>{{ profile['userName'] }}</span>
+  <mat-toolbar *ngIf="authService.profile$ | async as profile" style="border-radius: 0 0 8px 8px">
+    <span>Ви увійшли як: {{ profile['userName'] }}</span>
+    <div style="flex: 1"></div>
+    <span>{{ chatService.status }}</span>
   </mat-toolbar>
 
   <div style="margin-top: 24px;">

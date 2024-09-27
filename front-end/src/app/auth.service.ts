@@ -10,6 +10,7 @@ import { StorageService } from './storage.service';
 export class AuthService {
 
   private signedIn: boolean = false;
+  public token: string | undefined;
   public profile$ = new BehaviorSubject<Record<string, string> | null>(null);
 
   constructor(
@@ -42,7 +43,7 @@ export class AuthService {
     let privateKey: string | undefined;
 
     if (!this.storageService.getItem('privateKey')) {
-      const keyPair = await this.encryptionService.generateRSAKeyPair();
+      const keyPair = await this.encryptionService.generateRsaKeyPair();
       publicKey = keyPair.publicKey;
       privateKey = keyPair.privateKey;
     }
@@ -62,6 +63,7 @@ export class AuthService {
 
   private signInSuccess(token: string): void {
     const decodedToken = jwtDecode(token);
+    this.token = token;
     this.signedIn = true;
     this.profile$.next(decodedToken as Record<string, string>);
   }
