@@ -34,8 +34,8 @@
 UserName | Password
 --- | ---
 Alfa | Zulu
-Bravo | X-ray
-Charlie | Zulu
+Bravo | Zulu
+Charlie | X-ray
 Delta | Whiskey
 
 
